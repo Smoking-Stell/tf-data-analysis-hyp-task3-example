@@ -1,11 +1,12 @@
 import pandas as pd
 import numpy as np
+from scipy.stats import ttest_1samp
 
 
-chat_id = 123456 # Ваш chat ID, не меняйте название переменной
+chat_id = 461750643 # Ваш chat ID, не меняйте название переменной
 
-def solution(...) -> bool: # Одна или две выборке на входе, заполняется исходя из условия
-    # Измените код этой функции
-    # Это будет вашим решением
-    # Не меняйте название функции и её аргументы
-    return ... # Ваш ответ, True или False
+def solution(x: np.array) -> bool: # Одна или две выборке на входе, заполняется исходя из условия
+    alpha = 0.02
+    expect_mean = 501.5379723547809
+    t_stat, p_value = ttest_1samp(x, expect_mean)
+    return p_value < alpha # Ваш ответ, True или False
