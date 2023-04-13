@@ -9,4 +9,4 @@ def solution(x: np.array) -> bool: # Одна или две выборке на 
     alpha = 0.02
     expect_mean = 500
     t_stat, p_value = ttest_1samp(x, expect_mean)
-    return p_value < alpha # Ваш ответ, True или False
+    return (p_value < alpha and t_stat > 0) # Ваш ответ, True или False
